@@ -24,13 +24,13 @@ export default function Portfolio() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 text-left">
           <div className="space-y-4 max-w-2xl">
             <span className="font-mono text-[10px] text-neon-blue uppercase tracking-[0.3em] block font-bold">
-              [ PROTOCOLOS_DE_ÉXITO // I+D_APLICADO ]
+              [ PROTOCOLOS_DE_ÉXITO // APLICADO ]
             </span>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-white tracking-tighter uppercase italic">
               NODO <span className="text-neon-blue drop-shadow-[0_0_10px_rgba(0,242,255,0.5)]">PROYECTOS</span>
             </h2>
             <p className="text-gray-400 font-medium text-sm sm:text-base leading-relaxed border-l border-neon-blue/40 pl-6">
-              Sistemas desplegados en la región de Portuguesa. Ingeniería de alto rendimiento bajo estándares de diseño Automan.
+              Sistemas desplegados en la región de Portuguesa. Ingeniería de alto rendimiento bajo estándares de alto diseño.
             </p>
           </div>
 
