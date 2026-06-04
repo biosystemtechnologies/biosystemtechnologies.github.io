@@ -1,0 +1,6 @@
+{
+  "name": "Biosystem Technologies",
+  "description": "Sitio web oficial de Biosystem Technologies: Empresa de I+D de TI en Guanare, Portuguesa, Venezuela. Portafolio de proyectos, blog técnico, catálogo de productos y chat de soporte en vivo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
