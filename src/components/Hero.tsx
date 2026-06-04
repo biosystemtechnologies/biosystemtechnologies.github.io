@@ -12,9 +12,9 @@ interface HeroProps {
 
 export default function Hero({ onOpenChat }: HeroProps) {
   const stats = [
-    { label: 'Servicio de Microelectrónica', detail: 'Taller Especializado', icon: Cpu, color: 'text-neon-blue' },
+    { label: 'Servicio de Electrónica', detail: 'Taller Especializado', icon: Cpu, color: 'text-neon-blue' },
     { label: 'Desarrollo de Software', detail: 'Estándar Cyber / Offline', icon: Code, color: 'text-neon-blue' },
-    { label: 'Diseño e Impresión', detail: 'Garantía Vectorial', icon: Lightbulb, color: 'text-neon-blue' }
+    { label: 'Diseño Grafico e Impresión', detail: 'Garantía Vectorial', icon: Lightbulb, color: 'text-neon-blue' }
   ];
 
   const handleExploreClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -46,7 +46,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
           <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-black border border-neon-blue rounded-sm shadow-[0_0_10px_rgba(0,242,255,0.2)]">
             <span className="flex h-1.5 w-1.5 rounded-full bg-neon-blue animate-pulse" />
             <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neon-blue font-bold">
-              ESTACIÓN CENTRAL GUANARE • PROTOCOLO ACTIVADO
+              PROTOCOLO ACTIVADO
             </span>
           </div>
 
@@ -56,12 +56,13 @@ export default function Hero({ onOpenChat }: HeroProps) {
             <span className="text-neon-blue drop-shadow-[0_0_15px_rgba(0,242,255,0.6)]">
               Sistemas Digitales
             </span><br/>
-            <span className="text-3xl lg:text-5xl opacity-80">Región Portuguesa.</span>
+            <span className="text-3xl lg:text-5xl opacity-80">
+            A su medida.</span>
           </h1>
 
           {/* Subtext */}
           <p className="text-gray-400 text-sm sm:text-base font-medium leading-relaxed max-w-lg border-l-2 border-neon-blue pl-6">
-            Desarrollamos ingeniería de software de alta resiliencia, microelectrónica avanzada y comunicación visual de impacto. Transformamos el paisaje tecnológico llanero con estándares globales.
+            Desarrollo de software, Electrónica, y Comunicación Visual de impacto. Transformamos el paisaje tecnológico llanero con estándares globales.
           </p>
 
           {/* Actions */}
@@ -71,7 +72,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
               onClick={(e) => handleExploreClick(e, '#servicios')}
               className="automan-button flex items-center gap-2.5 px-8 py-4 text-[10px] font-bold rounded-sm uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,242,255,0.3)]"
             >
-              Explorar Protocolos
+              Explorando
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <button
@@ -118,7 +119,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
               </div>
               <span className="font-mono text-[9px] text-neon-blue uppercase tracking-[0.2em] flex items-center gap-1 font-bold">
                 <Settings2 className="w-3 h-3 animate-spin duration-[3000ms]" />
-                BIONODE OS // v1.0.4
+                NODE OS // v1.0.4
               </span>
             </div>
 
@@ -129,15 +130,15 @@ export default function Hero({ onOpenChat }: HeroProps) {
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-wider">
                   <span className="text-neon-blue flex items-center gap-1.5 font-bold">
                     <span className="w-1.5 h-1.5 bg-neon-blue animate-ping" />
-                    CORE_SOFT_RESILIENCE
+                    CORE_SOFT
                   </span>
-                  <span className="text-white font-bold opacity-90">ONLINE</span>
+                  <span className="text-white font-bold opacity-90">EN LINEA</span>
                 </div>
                 <div className="h-1 bg-neon-blue/10 border border-neon-blue/20 rounded-full overflow-hidden">
                   <div className="w-[88%] h-full bg-neon-blue shadow-[0_0_10px_rgba(0,242,255,1)]" />
                 </div>
                 <div className="flex justify-between text-[8px] font-mono text-neon-blue/60">
-                  <span>OFFLINE_ENABLED</span>
+                  <span>ENABLED</span>
                   <span>SYNC_CAPACITY_88%</span>
                 </div>
               </div>
@@ -147,15 +148,15 @@ export default function Hero({ onOpenChat }: HeroProps) {
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-wider">
                   <span className="text-neon-blue flex items-center gap-1.5 font-bold">
                     <span className="w-1.5 h-1.5 bg-neon-blue" />
-                    MICRO_DIAGNOSTICS
+                    DIAGNOSTICOS
                   </span>
-                  <span className="text-white font-bold opacity-90">READY</span>
+                  <span className="text-white font-bold opacity-90">LISTOS</span>
                 </div>
                 <div className="h-1 bg-neon-blue/10 border border-neon-blue/20 rounded-full overflow-hidden">
                   <div className="w-[94%] h-full bg-neon-blue/80 shadow-[0_0_5px_rgba(0,242,255,0.8)]" />
                 </div>
                 <div className="flex justify-between text-[8px] font-mono text-neon-blue/60">
-                  <span>PRECISION_CALIB</span>
+                  <span>PRECISION_MILIMETRICA</span>
                   <span>94.002 ACCURACY</span>
                 </div>
               </div>
@@ -165,7 +166,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-wider">
                   <span className="text-neon-blue flex items-center gap-1.5 font-bold">
                     <span className="w-1.5 h-1.5 bg-neon-blue opacity-50" />
-                    VECT_DISPLAY_ID
+                    DISPLAY_ID
                   </span>
                   <span className="text-white font-bold opacity-90">IDLE</span>
                 </div>
@@ -174,7 +175,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
                 </div>
                 <div className="flex justify-between text-[8px] font-mono text-neon-blue/60">
                   <span>COLOR_PROFILE_CMYK</span>
-                  <span>DELTA_E_OPTIMIZED</span>
+                  <span>OPTIMIZED</span>
                 </div>
               </div>
             </div>
