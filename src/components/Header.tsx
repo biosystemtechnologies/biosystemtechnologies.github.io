@@ -58,20 +58,22 @@ export default function Header({ onOpenChat, activeSection }: HeaderProps) {
           : 'bg-transparent py-5 border-b border-white/0'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between overflow-visible h-full">
         {/* Logo */}
-        <a href="#inicio" className="flex items-center group transition-transform duration-300 active:scale-95 relative z-10">
+        <a href="#inicio" className="flex items-center group transition-transform duration-300 active:scale-95 relative z-10 shrink-0">
           <img 
             src="/logo.png" 
             alt="Biosystem Logo" 
-            className={`object-contain transition-all duration-500 drop-shadow-[0_0_15px_rgba(0,242,255,0.4)] group-hover:drop-shadow-[0_0_30px_rgba(0,242,255,0.7)] ${
-              isScrolled ? 'w-24 h-24' : 'w-48 h-48 sm:w-56 sm:h-56'
+            className={`object-contain transition-all duration-500 drop-shadow-[0_0_20px_rgba(0,242,255,0.3)] group-hover:drop-shadow-[0_0_40px_rgba(0,242,255,0.6)] ${
+              isScrolled 
+                ? 'w-20 h-20 -translate-y-2' 
+                : 'w-48 h-48 sm:w-56 sm:h-56 -translate-y-4'
             }`} 
           />
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 bg-black/40 border border-neon-blue/30 px-2 py-1.5 rounded-sm backdrop-blur-md">
+        <nav className="hidden md:flex items-center gap-1 bg-black/60 border border-neon-blue/30 px-2 py-1.5 rounded-sm backdrop-blur-xl relative z-20">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.substring(1);
             return (

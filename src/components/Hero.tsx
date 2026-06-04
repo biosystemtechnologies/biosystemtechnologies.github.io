@@ -34,7 +34,7 @@ export default function Hero({ onOpenChat }: HeroProps) {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen pt-48 pb-20 flex flex-col justify-center overflow-hidden">
       {/* Decorative background orbs */}
       <div className="absolute top-[15%] left-[10%] w-[350px] h-[350px] rounded-full glow-orb -z-10 filter blur-[90px]" />
       <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] rounded-full glow-orb -z-10 filter blur-[110px]" />
