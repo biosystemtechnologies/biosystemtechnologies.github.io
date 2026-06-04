@@ -265,7 +265,7 @@ export const CHAT_BOT_TREE: { [key: string]: { text: string; replies: { text: st
     ]
   },
   ubicacion: {
-    text: '📍 Estamos ubicados en la vibrante ciudad de Guanare, Estado Portuguesa, Venezuela.\n📞 Teléfono Fijo: 0257-2539969\n📱 Celular/WhatsApp: 0412-4955404\n✉️ Correo: biosystemtechnologies@gmail.com\n⏰ Horario: Lunes a Sábado, de 8:00 AM a 6:00 PM.',
+    text: '📍 Estamos ubicados en la vibrante ciudad de Guanare, Estado Portuguesa, Venezuela.\n📞 Teléfono Fijo: 0257-2539969\n📱 Celular/WhatsApp: 0426-4500865\n✉️ Correo: biosystemtechnologies@gmail.com\n⏰ Horario: Lunes a Sábado, de 8:00 AM a 6:00 PM.',
     replies: [
       { text: '🟢 Hablar Directo por WhatsApp', next: 'whatsapp_redirect' },
       { text: '📬 Dejar un Mensaje en Formulario', next: 'contact_form_ref' },
@@ -280,7 +280,7 @@ export const CHAT_BOT_TREE: { [key: string]: { text: string; replies: { text: st
     ]
   },
   cotizar_pc: {
-    text: 'Para cotizar una máquina a tu medida, por favor envíanos los detalles por WhatsApp (0412-4955404) o déjanos tu correo en el formulario de la parte inferior de la web.',
+    text: 'Para cotizar una máquina a tu medida, por favor envíanos los detalles por WhatsApp (0426-4500865) o déjanos tu correo en el formulario de la parte inferior de la web.',
     replies: [
       { text: '🟢 Ir a WhatsApp para cotizar', next: 'whatsapp_redirect' },
       { text: '🔄 Volver al Inicio', next: 'inicio' }
@@ -329,7 +329,7 @@ export const CHAT_BOT_TREE: { [key: string]: { text: string; replies: { text: st
     ]
   },
   whatsapp_redirect: {
-    text: '🔐 Redirigiendo de forma segura... Puedes pulsar en este enlace o escribir directamente a nuestro gestor de soporte móvil de Portuguesa (+584124955404).',
+    text: '🔐 Redirigiendo de forma segura... Puedes pulsar en este enlace o escribir directamente a nuestro gestor de soporte móvil de Portuguesa (+584264500865).',
     replies: [
       { text: '🔗 Presiona aquí para chatear', next: 'whatsapp_link_action' },
       { text: '🔄 Volver al Inicio', next: 'inicio' }

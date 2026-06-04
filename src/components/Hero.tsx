@@ -12,9 +12,9 @@ interface HeroProps {
 
 export default function Hero({ onOpenChat }: HeroProps) {
   const stats = [
-    { label: 'Servicio de Microelectrónica', detail: 'Taller Especializado', icon: Cpu, color: 'text-white' },
-    { label: 'Desarrollo de Software', detail: 'Estándar Premium / Offline', icon: Code, color: 'text-gray-300' },
-    { label: 'Diseño e Impresión', detail: 'Garantía CMYK Color', icon: Lightbulb, color: 'text-gray-400' }
+    { label: 'Servicio de Microelectrónica', detail: 'Taller Especializado', icon: Cpu, color: 'text-neon-blue' },
+    { label: 'Desarrollo de Software', detail: 'Estándar Cyber / Offline', icon: Code, color: 'text-neon-blue' },
+    { label: 'Diseño e Impresión', detail: 'Garantía Vectorial', icon: Lightbulb, color: 'text-neon-blue' }
   ];
 
   const handleExploreClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -36,32 +36,32 @@ export default function Hero({ onOpenChat }: HeroProps) {
   return (
     <section id="inicio" className="relative min-h-screen pt-32 pb-20 flex flex-col justify-center overflow-hidden">
       {/* Decorative background orbs */}
-      <div className="absolute top-[15%] left-[10%] w-[350px] h-[350px] rounded-full glow-orb-1 -z-10 filter blur-[90px]" />
-      <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] rounded-full glow-orb-2 -z-10 filter blur-[110px]" />
+      <div className="absolute top-[15%] left-[10%] w-[350px] h-[350px] rounded-full glow-orb -z-10 filter blur-[90px]" />
+      <div className="absolute bottom-[20%] right-[10%] w-[450px] h-[450px] rounded-full glow-orb -z-10 filter blur-[110px]" />
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         {/* Left Side: Creative Message */}
         <div className="lg:col-span-7 space-y-8 text-left animate-in fade-in duration-700">
           {/* Tag */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-white/5 border border-white/10 rounded-full">
-            <span className="flex h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-            <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-400 font-medium">
-              Sede Central Guanare • Portuguesa • Venezuela
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-black border border-neon-blue rounded-sm shadow-[0_0_10px_rgba(0,242,255,0.2)]">
+            <span className="flex h-1.5 w-1.5 rounded-full bg-neon-blue animate-pulse" />
+            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neon-blue font-bold">
+              ESTACIÓN CENTRAL GUANARE • PROTOCOLO ACTIVADO
             </span>
           </div>
 
           {/* Heading */}
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-light tracking-tighter text-white leading-[1.0] max-w-2xl">
-            Innovación en <br/>
-            <span className="font-medium italic text-gray-400 bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
-              Tecnologías de Información
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter text-white leading-[0.9] max-w-2xl">
+            Vanguardia en <br/>
+            <span className="text-neon-blue drop-shadow-[0_0_15px_rgba(0,242,255,0.6)]">
+              Sistemas Digitales
             </span><br/>
-            para Portuguesa.
+            <span className="text-3xl lg:text-5xl opacity-80">Región Portuguesa.</span>
           </h1>
 
           {/* Subtext */}
-          <p className="text-gray-400 text-sm sm:text-base font-light leading-relaxed max-w-lg">
-            Ofrecemos ingeniería avanzada en software, soporte técnico microelectrónico de primer nivel, diseño comercial e impresiones de gran escala. Elevamos el estándar tecnológico del Centro-Occidente venezolano.
+          <p className="text-gray-400 text-sm sm:text-base font-medium leading-relaxed max-w-lg border-l-2 border-neon-blue pl-6">
+            Desarrollamos ingeniería de software de alta resiliencia, microelectrónica avanzada y comunicación visual de impacto. Transformamos el paisaje tecnológico llanero con estándares globales.
           </p>
 
           {/* Actions */}
@@ -69,32 +69,32 @@ export default function Hero({ onOpenChat }: HeroProps) {
             <a
               href="#servicios"
               onClick={(e) => handleExploreClick(e, '#servicios')}
-              className="group flex items-center gap-2.5 px-6 py-3.5 text-[10px] font-bold text-black bg-white rounded-full hover:bg-neutral-200 uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-[0_4px_20px_rgba(255,255,255,0.15)]"
+              className="automan-button flex items-center gap-2.5 px-8 py-4 text-[10px] font-bold rounded-sm uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 shadow-[0_0_20px_rgba(0,242,255,0.3)]"
             >
-              Nuestra Oferta
-              <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
+              Explorar Protocolos
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
             <button
               onClick={onOpenChat}
-              className="flex items-center gap-2 px-6 py-3.5 text-[10px] font-bold text-white bg-white/5 border border-white/10 rounded-full hover:bg-white/10 uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer"
+              className="flex items-center gap-2 px-8 py-4 text-[10px] font-bold text-neon-blue bg-neon-blue/5 border border-neon-blue/30 rounded-sm hover:bg-neon-blue/10 uppercase tracking-widest transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer"
             >
-              Consultar Soporte Móvil
+              Enlace de Soporte
             </button>
           </div>
 
-          <hr className="border-white/10 max-w-xl" />
+          <hr className="border-neon-blue/20 max-w-xl" />
 
           {/* Core highlights */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
             {stats.map((stat, i) => (
-              <div key={i} className="flex flex-col gap-1.5 p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
+              <div key={i} className="flex flex-col gap-1.5 p-4 rounded-sm bg-black border border-neon-blue/30 backdrop-blur-sm shadow-[inset_0_0_10px_rgba(0,242,255,0.05)]">
                 <div className="flex items-center gap-2">
-                  <stat.icon className={`w-3.5 h-3.5 ${stat.color}`} />
-                  <span className="font-mono text-[8px] uppercase tracking-widest text-gray-500">
+                  <stat.icon className={`w-3.5 h-3.5 ${stat.color} drop-shadow-[0_0_5px_rgba(0,242,255,0.5)]`} />
+                  <span className="font-mono text-[8px] uppercase tracking-widest text-neon-blue/60">
                     {stat.detail}
                   </span>
                 </div>
-                <span className="text-[11px] font-medium text-white leading-tight">
+                <span className="text-[11px] font-bold text-white leading-tight uppercase tracking-tight">
                   {stat.label}
                 </span>
               </div>
@@ -102,83 +102,87 @@ export default function Hero({ onOpenChat }: HeroProps) {
           </div>
         </div>
 
-        {/* Right Side: High Fidelity interactive Apple style element */}
+        {/* Right Side: Virtual Display Style Dashboard */}
         <div className="lg:col-span-5 relative">
-          <div className="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 shadow-[0_12px_40px_rgba(0,0,0,0.6)] overflow-hidden max-w-md mx-auto">
+          <div className="relative bg-black border-2 border-neon-blue rounded-sm p-6 shadow-[0_0_40px_rgba(0,242,255,0.3)] overflow-hidden max-w-md mx-auto">
+            {/* Grid Overlay inside the box */}
+            <div className="absolute inset-0 opacity-10 pointer-events-none" 
+                 style={{ backgroundImage: 'linear-gradient(rgba(0, 242, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 242, 255, 0.2) 1px, transparent 1px)', backgroundSize: '15px 15px' }}></div>
+            
             {/* Top Bar Decoration */}
-            <div className="flex items-between justify-between border-b border-white/10 pb-4 mb-5">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-white/30" />
-                <span className="w-2 h-2 rounded-full bg-white/20" />
-                <span className="w-2 h-2 rounded-full bg-white/10" />
+            <div className="flex items-center justify-between border-b border-neon-blue/50 pb-4 mb-5 relative z-10">
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 bg-neon-blue shadow-[0_0_5px_rgba(0,242,255,0.8)]" />
+                <span className="w-1.5 h-1.5 bg-neon-blue opacity-50" />
+                <span className="w-1.5 h-1.5 bg-neon-blue opacity-20" />
               </div>
-              <span className="font-mono text-[9px] text-gray-500 uppercase tracking-[0.15em] flex items-center gap-1">
-                <Settings2 className="w-3 h-3 animate-spin duration-300" />
-                BIOSYSTEM R&D NODE
+              <span className="font-mono text-[9px] text-neon-blue uppercase tracking-[0.2em] flex items-center gap-1 font-bold">
+                <Settings2 className="w-3 h-3 animate-spin duration-[3000ms]" />
+                BIONODE OS // v1.0.4
               </span>
             </div>
 
             {/* Simulated Server Info Dashboard */}
-            <div className="space-y-4">
+            <div className="space-y-4 relative z-10">
               {/* Module 1: Software Node status */}
-              <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2">
+              <div className="p-4 bg-neon-blue/5 rounded-sm border border-neon-blue/40 space-y-2">
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-wider">
-                  <span className="text-gray-300 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-ping" />
-                    DESARROLLO DE SOFTWARE
+                  <span className="text-neon-blue flex items-center gap-1.5 font-bold">
+                    <span className="w-1.5 h-1.5 bg-neon-blue animate-ping" />
+                    CORE_SOFT_RESILIENCE
                   </span>
-                  <span className="text-white font-semibold">ACTIVE // PWA</span>
+                  <span className="text-white font-bold opacity-90">ONLINE</span>
                 </div>
-                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                  <div className="w-[88%] h-full bg-white rounded-full transition-all duration-1000" />
+                <div className="h-1 bg-neon-blue/10 border border-neon-blue/20 rounded-full overflow-hidden">
+                  <div className="w-[88%] h-full bg-neon-blue shadow-[0_0_10px_rgba(0,242,255,1)]" />
                 </div>
-                <div className="flex justify-between text-[8px] font-mono text-gray-500">
-                  <span>Offline Sync Status</span>
-                  <span>100% Operational</span>
+                <div className="flex justify-between text-[8px] font-mono text-neon-blue/60">
+                  <span>OFFLINE_ENABLED</span>
+                  <span>SYNC_CAPACITY_88%</span>
                 </div>
               </div>
 
               {/* Module 2: Tech repair status report */}
-              <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2">
+              <div className="p-4 bg-neon-blue/5 rounded-sm border border-neon-blue/40 space-y-2">
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-wider">
-                  <span className="text-gray-300 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-gray-400 rounded-full" />
-                    DIAGNÓSTICO MICROELECTRÓNICO
+                  <span className="text-neon-blue flex items-center gap-1.5 font-bold">
+                    <span className="w-1.5 h-1.5 bg-neon-blue" />
+                    MICRO_DIAGNOSTICS
                   </span>
-                  <span className="text-gray-300 font-semibold">BENCH TESTS</span>
+                  <span className="text-white font-bold opacity-90">READY</span>
                 </div>
-                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                  <div className="w-[94%] h-full bg-gray-300 rounded-full" />
+                <div className="h-1 bg-neon-blue/10 border border-neon-blue/20 rounded-full overflow-hidden">
+                  <div className="w-[94%] h-full bg-neon-blue/80 shadow-[0_0_5px_rgba(0,242,255,0.8)]" />
                 </div>
-                <div className="flex justify-between text-[8px] font-mono text-gray-500">
-                  <span>Component Precision Calibration</span>
-                  <span>94% Accuracy rate</span>
+                <div className="flex justify-between text-[8px] font-mono text-neon-blue/60">
+                  <span>PRECISION_CALIB</span>
+                  <span>94.002 ACCURACY</span>
                 </div>
               </div>
 
               {/* Module 3: Vector Render Node */}
-              <div className="p-4 bg-white/5 rounded-2xl border border-white/10 space-y-2">
+              <div className="p-4 bg-neon-blue/5 rounded-sm border border-neon-blue/40 space-y-2">
                 <div className="flex justify-between items-center text-[10px] font-mono tracking-wider">
-                  <span className="text-gray-300 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-gray-500 rounded-full" />
-                    IMPRESIÓN PUBLICITARIA CMYK
+                  <span className="text-neon-blue flex items-center gap-1.5 font-bold">
+                    <span className="w-1.5 h-1.5 bg-neon-blue opacity-50" />
+                    VECT_DISPLAY_ID
                   </span>
-                  <span className="text-gray-400 font-semibold">PLOTTER IDLE</span>
+                  <span className="text-white font-bold opacity-90">IDLE</span>
                 </div>
-                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
-                  <div className="w-[75%] h-full bg-gray-400 rounded-full" />
+                <div className="h-1 bg-neon-blue/10 border border-neon-blue/20 rounded-full overflow-hidden">
+                  <div className="w-[75%] h-full bg-neon-blue/60" />
                 </div>
-                <div className="flex justify-between text-[8px] font-mono text-gray-500">
-                  <span>Color Profiling Matcher</span>
-                  <span>Delta E &lt; 1.2</span>
+                <div className="flex justify-between text-[8px] font-mono text-neon-blue/60">
+                  <span>COLOR_PROFILE_CMYK</span>
+                  <span>DELTA_E_OPTIMIZED</span>
                 </div>
               </div>
             </div>
 
             {/* Quick Live Contact Section inside the showcase */}
-            <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] font-mono tracking-widest text-gray-500">
-              <span>Guanare Teléfonos:</span>
-              <span className="text-white hover:text-gray-300 transition-colors">0257-2539969</span>
+            <div className="mt-5 pt-4 border-t border-neon-blue/30 flex items-center justify-between text-[10px] font-mono tracking-[0.2em] text-neon-blue/70">
+              <span>EST_PORT_GUANARE</span>
+              <span className="text-neon-blue font-bold">#58-257-2539969</span>
             </div>
           </div>
         </div>

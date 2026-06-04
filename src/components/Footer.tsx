@@ -15,74 +15,93 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black border-t border-white/10 py-16 relative">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10 items-start text-left">
+    <footer className="bg-black border-t border-neon-blue/30 py-16 relative overflow-hidden">
+      {/* Decorative Scanline */}
+      <div className="absolute inset-0 bg-scanline opacity-[0.02] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 items-start text-left relative z-10">
         
         {/* Brand Column */}
-        <div className="md:col-span-2 space-y-5">
+        <div className="md:col-span-2 space-y-6">
           <a href="#inicio" className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-white">
-              <Layers className="w-4.5 h-4.5 text-black" />
+            <div className="flex items-center justify-center w-10 h-10 border border-neon-blue bg-black shadow-[0_0_10px_rgba(0,242,255,0.4)] rounded-sm">
+              <Layers className="w-5 h-5 text-neon-blue" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-medium text-base text-white tracking-tight">
-                Biosystem
+              <span className="font-display font-bold text-lg text-white tracking-tighter uppercase italic">
+                Biosystem <span className="text-neon-blue">Tech</span>
               </span>
-              <span className="font-mono text-[8px] uppercase tracking-widest text-gray-500 leading-none">
-                Technologies
+              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neon-blue/50 font-bold leading-none">
+                PROTOCOL_NODE_V1
               </span>
             </div>
           </a>
 
-          <p className="text-xs text-gray-400 font-light leading-relaxed max-w-sm">
-            Investigación y Desarrollo de Tecnologías de Información. Suministro integral de ordenadores certificados, soporte técnico microelectrónico de precisión, branding comercial de marca e impresiones gran formato en el Estado Portuguesa.
+          <p className="text-[11px] text-gray-400 font-medium leading-relaxed max-w-sm border-l-2 border-neon-blue/20 pl-6">
+            Investigación y Desarrollo de Sistemas Digitales en la región de Portuguesa. Especialistas en microelectrónica de alta precisión, ingeniería de software resiliente y comunicación visual de impacto.
           </p>
 
-          <p className="text-[10px] font-mono text-gray-500 uppercase tracking-wider">
-            © {new Date().getFullYear()} Biosystem Technologies. Todos los derechos reservados.<br />
-            Sede Técnica Guanare • Portuguesa, Venezuela.
+          <p className="text-[9px] font-mono text-neon-blue/40 uppercase tracking-[0.2em] font-bold">
+            © {new Date().getFullYear()} BIOSYSTEM_TECH // TODOS LOS DERECHOS RESERVADOS<br />
+            ID_ESTACIÓN: GUANARE_PORT_VE
           </p>
         </div>
 
         {/* Contacts Column */}
-        <div className="space-y-4">
-          <h4 className="font-mono text-[10px] text-white uppercase tracking-widest font-bold">Contactos Oficiales</h4>
-          <ul className="space-y-3 font-light text-xs text-gray-400">
-            <li className="flex items-center gap-2.5">
-              <Phone className="w-3.5 h-3.5 text-white shrink-0" />
-              <span>0257-2539969 (Fijo)</span>
+        <div className="space-y-5">
+          <h4 className="font-mono text-[10px] text-neon-blue uppercase tracking-[0.3em] font-bold border-b border-neon-blue/20 pb-2">
+            ENLACE_MÓVIL
+          </h4>
+          <ul className="space-y-3 font-medium text-[11px] text-gray-400">
+            <li className="flex items-center gap-2.5 group">
+              <Phone className="w-4 h-4 text-neon-blue shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="group-hover:text-white transition-colors">0257-2539969 [FIJO]</span>
             </li>
-            <li className="flex items-center gap-2.5">
-              <Phone className="w-3.5 h-3.5 text-white shrink-0" />
-              <span>0412-4955404 (Celular)</span>
+            <li className="flex items-center gap-2.5 group">
+              <Phone className="w-4 h-4 text-neon-blue shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="group-hover:text-white transition-colors">0426-4500865 [CEL]</span>
             </li>
-            <li className="flex items-center gap-2.5">
-              <Mail className="w-3.5 h-3.5 text-white shrink-0" />
-              <span className="truncate">biosystemtechnologies@gmail.com</span>
+            <li className="flex items-center gap-2.5 group">
+              <Mail className="w-4 h-4 text-neon-blue shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="truncate group-hover:text-white transition-colors">biosystemtechnologies@gmail.com</span>
             </li>
-            <li className="flex items-center gap-2.5">
-              <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
-              <span>Guanare, Portuguesa</span>
+            <li className="flex items-center gap-2.5 group">
+              <MapPin className="w-4 h-4 text-neon-blue shrink-0 group-hover:scale-110 transition-transform" />
+              <span className="group-hover:text-white transition-colors uppercase tracking-tight">Guanare, Portuguesa</span>
             </li>
           </ul>
         </div>
 
         {/* Useful Quick links */}
-        <div className="space-y-4">
-          <h4 className="font-mono text-[10px] text-white uppercase tracking-widest font-bold">Tecnologías</h4>
-          <ul className="space-y-2 text-xs text-gray-400">
-            <li><span className="hover:text-white transition-colors cursor-default">Sistemas Offline-First</span></li>
-            <li><span className="hover:text-white transition-colors cursor-default">Micro-soldadura SMD / BGA</span></li>
-            <li><span className="hover:text-white transition-colors cursor-default">Impresión Calibrada CMYK</span></li>
-            <li><span className="hover:text-white transition-colors cursor-default">I+D de TI Aplicada</span></li>
+        <div className="space-y-5">
+          <h4 className="font-mono text-[10px] text-neon-blue uppercase tracking-[0.3em] font-bold border-b border-neon-blue/20 pb-2">
+            NÚCLEO_TI
+          </h4>
+          <ul className="space-y-2 text-[11px] text-gray-400 font-bold uppercase tracking-tight">
+            <li className="hover:text-neon-blue transition-colors cursor-default flex items-center gap-2">
+              <span className="w-1 h-1 bg-neon-blue rounded-full"></span>
+              Sistemas Offline-First
+            </li>
+            <li className="hover:text-neon-blue transition-colors cursor-default flex items-center gap-2">
+              <span className="w-1 h-1 bg-neon-blue rounded-full"></span>
+              Micro-soldadura Precision
+            </li>
+            <li className="hover:text-neon-blue transition-colors cursor-default flex items-center gap-2">
+              <span className="w-1 h-1 bg-neon-blue rounded-full"></span>
+              Branding Vectorial
+            </li>
+            <li className="hover:text-neon-blue transition-colors cursor-default flex items-center gap-2">
+              <span className="w-1 h-1 bg-neon-blue rounded-full"></span>
+              Investigación I+D
+            </li>
           </ul>
           
           <button
             onClick={handleScrollToTop}
-            className="mt-4 flex items-center gap-2 text-[10px] font-mono text-gray-400 hover:text-white transition-colors uppercase font-bold cursor-pointer"
+            className="mt-6 flex items-center gap-2 text-[10px] font-mono text-neon-blue bg-neon-blue/5 border border-neon-blue/30 px-4 py-2 rounded-sm hover:bg-neon-blue hover:text-black transition-all uppercase font-bold cursor-pointer shadow-[0_0_10px_rgba(0,242,255,0.2)]"
           >
-            <ArrowUp className="w-3.5 h-3.5" />
-            Volver Arriba
+            <ArrowUp className="w-4 h-4" />
+            RESET_OFFSET_0
           </button>
         </div>
 

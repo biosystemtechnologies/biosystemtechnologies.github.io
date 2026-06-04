@@ -19,6 +19,7 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [displayedText, setDisplayedText] = useState<{[key: string]: string}>({});
   const [currentNode, setCurrentNode] = useState('inicio');
   
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -49,7 +50,26 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
   // Scroll to bottom helper
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isTyping]);
+  }, [messages, isTyping, displayedText]);
+
+  // Typewriter effect for bot messages
+  useEffect(() => {
+    const lastMessage = messages[messages.length - 1];
+    if (lastMessage && lastMessage.sender === 'bot' && !displayedText[lastMessage.id]) {
+      let index = 0;
+      const interval = setInterval(() => {
+        setDisplayedText(prev => ({
+          ...prev,
+          [lastMessage.id]: lastMessage.text.slice(0, index + 1)
+        }));
+        index++;
+        if (index >= lastMessage.text.length) {
+          clearInterval(interval);
+        }
+      }, 20); // speed of typewriter
+      return () => clearInterval(interval);
+    }
+  }, [messages]);
 
   const getFormattedTime = () => {
     const d = new Date();
@@ -143,7 +163,7 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
 
       // Special action actions
       if (nextNodeKey === 'whatsapp_link_action') {
-        window.open('https://wa.me/584124955404?text=Hola%20Biosystem%20quiero%20hacer%20una%20consulta%20tecnica', '_blank');
+        window.open('https://wa.me/584264500865?text=Hola%20Biosystem%20quiero%20hacer%20una%20consulta%20tecnica', '_blank');
         nextNodeKey = 'inicio';
       }
 
@@ -208,7 +228,7 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
         quickReplies = ['🎴 Pendones', '🎨 Rediseño de Logo', '🔄 Menu de inicio'];
         setCurrentNode('diseno');
       } else if (sanitized.includes('telefono') || sanitized.includes('numero') || sanitized.includes('whatsapp') || sanitized.includes('correo') || sanitized.includes('contacto')) {
-        botResponseText = '¡Nuestros canales oficiales de contacto directo están disponibles para ti!\n📞 Teléfono Fijo: 0257-2539969\n📱 Celular: 0412-4955404\n✉️ Correo: biosystemtechnologies@gmail.com';
+        botResponseText = '¡Nuestros canales oficiales de contacto directo están disponibles para ti!\n📞 Teléfono Fijo: 0257-2539969\n📱 Celular: 0426-4500865\n✉️ Correo: biosystemtechnologies@gmail.com';
         quickReplies = ['🟢 Hablar por WhatsApp', '🔄 Menu de inicio'];
         setCurrentNode('ubicacion');
       }
@@ -232,77 +252,84 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
       {!isOpen && (
         <button
           onClick={onOpen}
-          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-gradient-to-tr from-emerald-400 to-emerald-500 rounded-full text-black shadow-[0_4px_25px_rgba(16,185,129,0.4)] hover:shadow-[0_4px_35px_rgba(52,211,153,0.65)] hover:scale-[1.05] active:scale-95 transition-all cursor-pointer group"
-          title="Abrir chat de soporte en vivo"
+          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-black border-2 border-neon-blue rounded-sm text-neon-blue shadow-[0_0_20px_rgba(0,242,255,0.4)] hover:shadow-[0_0_35px_rgba(0,242,255,0.6)] hover:scale-[1.05] active:scale-95 transition-all cursor-pointer group"
+          title="Abrir terminal de soporte BioBot"
         >
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
-            <span className="animate-ping绝对 inline-flex h-full w-full rounded-full bg-red-400 opacity-75 animate-ping" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-[9px] text-white font-mono font-bold items-center justify-center">1</span>
+            <span className="animate-ping绝对 inline-flex h-full w-full rounded-full bg-neon-blue opacity-75 animate-ping" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-neon-blue text-[9px] text-black font-mono font-bold items-center justify-center">!</span>
           </span>
-          <MessageSquare className="w-6 h-6 group-hover:rotate-6 transition-transform" />
+          <MessageSquare className="w-6 h-6 group-hover:rotate-6 transition-transform shadow-[0_0_8px_rgba(0,242,255,0.5)]" />
         </button>
       )}
 
       {/* Actual Chat Dialog Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-full max-w-[370px] h-[520px] rounded-3xl glass-panel border border-white/12 shadow-[0_20px_50px_rgba(0,0,0,0.7)] flex flex-col justify-between overflow-hidden animate-in slide-in-from-bottom-6 fade-in duration-300">
+        <div className="fixed bottom-6 right-6 z-50 w-full max-w-[370px] h-[520px] rounded-sm bg-black border-2 border-neon-blue shadow-[0_0_50px_rgba(0,242,255,0.2)] flex flex-col justify-between overflow-hidden animate-in slide-in-from-bottom-6 fade-in duration-300">
+          <div className="absolute inset-0 bg-scanline opacity-[0.03] pointer-events-none"></div>
           
           {/* Header row */}
-          <div className="p-4 bg-black/50 border-b border-white/6 flex items-center justify-between">
+          <div className="p-4 bg-black border-b border-neon-blue/30 flex items-center justify-between relative z-10">
             <div className="flex items-center gap-3">
-              <div className="relative flex items-center justify-center w-9 h-9 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl">
-                <Layers className="w-4 h-4 text-white" />
+              <div className="relative flex items-center justify-center w-10 h-10 border border-neon-blue bg-black rounded-sm shadow-[0_0_10px_rgba(0,242,255,0.3)]">
+                <Layers className="w-5 h-5 text-neon-blue" />
                 {/* Active pulse */}
-                <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 border border-black rounded-full" />
+                <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-neon-blue border border-black rounded-full shadow-[0_0_5px_rgba(0,242,255,1)]" />
               </div>
               <div className="text-left">
-                <h4 className="text-xs font-bold text-white flex items-center gap-1.5 leading-tight">
-                  BioBot Support 
-                  <Sparkles className="w-3 h-3 text-emerald-400" />
+                <h4 className="text-[11px] font-bold text-white flex items-center gap-2 leading-tight uppercase italic tracking-tighter">
+                  BIOBOT_COMMS_V1 
+                  <Sparkles className="w-3.5 h-3.5 text-neon-blue animate-pulse" />
                 </h4>
-                <p className="text-[10px] text-emerald-400 font-mono">SOPORTE EN VIVO ACTIVO</p>
+                <p className="text-[9px] text-neon-blue font-mono font-bold tracking-[0.2em]">UPLINK_ESTABLISHED</p>
               </div>
             </div>
             
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg text-[#a1a1aa] hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+              className="p-1.5 rounded-sm text-neon-blue/50 hover:text-neon-blue hover:bg-neon-blue/10 transition-colors cursor-pointer border border-transparent hover:border-neon-blue/30"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* Messages stream display area */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-black/20">
+          <div className="flex-1 p-4 overflow-y-auto space-y-5 bg-black relative z-10">
+            <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+            
             {messages.map((m) => {
               const isBot = m.sender === 'bot';
               return (
-                <div key={m.id} className={`flex flex-col ${isBot ? 'items-start' : 'items-end'} space-y-1`}>
+                <div key={m.id} className={`flex flex-col ${isBot ? 'items-start' : 'items-end'} space-y-1.5 relative`}>
                   {/* Sender title */}
-                  <span className="font-mono text-[8px] text-[#52525b] px-1.5">
-                    {isBot ? 'BIOBOT ASSISTANT' : 'CLIENTE'} • {m.timestamp}
+                  <span className="font-mono text-[8px] text-neon-blue/40 px-1.5 font-bold uppercase tracking-widest">
+                    {isBot ? 'SYS_OUTPUT' : 'USR_INPUT'} // {m.timestamp}
                   </span>
                   
                   {/* Bubble body content */}
-                  <div className={`p-3 max-w-[85%] text-left rounded-2xl text-xs leading-normal font-light ${
+                  <div className={`p-3.5 max-w-[88%] text-left rounded-sm text-[11px] leading-relaxed font-bold ${
                     isBot 
-                      ? 'bg-neutral-900/80 border border-white/5 text-white rounded-tl-sm' 
-                      : 'bg-[#10b981]/15 border border-[#10b981]/25 text-emerald-300 rounded-tr-sm'
+                      ? 'bg-black border border-neon-blue/40 text-white shadow-[inset_0_0_10px_rgba(0,242,255,0.05)] border-l-4 border-l-neon-blue' 
+                      : 'bg-neon-blue/10 border border-neon-blue/30 text-neon-blue border-r-4 border-r-neon-blue'
                   }`}>
-                    {/* Preserve line breaks */}
-                    {m.text.split('\n').map((line, lid) => (
+                    {/* Preserve line breaks and use typewriter if bot */}
+                    {(isBot ? (displayedText[m.id] || '') : m.text).split('\n').map((line, lid) => (
                       <p key={lid} className={lid > 0 ? 'mt-1' : ''}>{line}</p>
                     ))}
+                    
+                    {isBot && displayedText[m.id]?.length !== m.text.length && (
+                      <span className="inline-block w-1.5 h-3 bg-neon-blue ml-1 animate-pulse" />
+                    )}
                   </div>
 
                   {/* Bubble internal quick replies */}
-                  {isBot && m.quickReplies && (
-                    <div className="flex flex-wrap gap-1.5 pt-1.5 max-w-[95%]">
+                  {isBot && m.quickReplies && displayedText[m.id]?.length === m.text.length && (
+                    <div className="flex flex-wrap gap-2 pt-1 max-w-[95%]">
                       {m.quickReplies.map((reply) => (
                         <button
                           key={reply}
                           onClick={() => handleQuickReplyClick(reply)}
-                          className="px-2.5 py-1 rounded-full border border-white/5 bg-white/[0.03] text-[10px] text-emerald-400 hover:text-white hover:border-emerald-500/20 hover:bg-emerald-500/5 transition-all cursor-pointer active:scale-95"
+                          className="px-3 py-1.5 rounded-sm border border-neon-blue/30 bg-black text-[9px] text-neon-blue font-bold uppercase tracking-tighter hover:bg-neon-blue hover:text-black hover:shadow-[0_0_15px_rgba(0,242,255,0.4)] transition-all cursor-pointer active:scale-95 italic"
                         >
                           {reply}
                         </button>
@@ -315,12 +342,12 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
             })}
 
             {isTyping && (
-              <div className="flex flex-col items-start space-y-1">
-                <span className="font-mono text-[8px] text-[#52525b] px-1.5">BIOBOT ASSISTANT</span>
-                <div className="p-3 bg-neutral-900 border border-white/5 rounded-2xl rounded-tl-sm flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                <div className="flex flex-col items-start space-y-1.5">
+                <span className="font-mono text-[8px] text-neon-blue/40 px-1.5 font-bold uppercase tracking-widest">SYS_PROCESSING</span>
+                <div className="p-3 bg-black border border-neon-blue/20 rounded-sm flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-neon-blue rounded-full animate-pulse shadow-[0_0_5px_rgba(0,242,255,1)]" style={{ animationDelay: '0ms' }} />
+                  <span className="w-1.5 h-1.5 bg-neon-blue rounded-full animate-pulse shadow-[0_0_5px_rgba(0,242,255,1)]" style={{ animationDelay: '200ms' }} />
+                  <span className="w-1.5 h-1.5 bg-neon-blue rounded-full animate-pulse shadow-[0_0_5px_rgba(0,242,255,1)]" style={{ animationDelay: '400ms' }} />
                 </div>
               </div>
             )}
@@ -328,26 +355,26 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
           </div>
 
           {/* Action Call text bar */}
-          <form onSubmit={handleSendMessage} className="p-3 bg-black/40 border-t border-white/6 flex items-center gap-2">
+          <form onSubmit={handleSendMessage} className="p-3 bg-black border-t border-neon-blue/30 flex items-center gap-2 relative z-10">
             <input
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              placeholder="Escribe una pregunta rápida..."
-              className="flex-1 bg-[#121214] border border-white/5 text-xs text-white placeholder-[#52525b] py-2 px-3.5 rounded-xl focus:outline-none focus:border-emerald-500/30 transition-colors"
+              placeholder="ENVIAR_ORDEN_DE_CONSULTA..."
+              className="flex-1 bg-black border border-neon-blue/20 text-[10px] text-white font-bold placeholder-neon-blue/20 py-3 px-4 rounded-sm focus:outline-none focus:border-neon-blue focus:shadow-[0_0_10px_rgba(0,242,255,0.1)] transition-all uppercase tracking-tighter"
             />
             <button
               type="submit"
-              className="p-2 bg-emerald-500 text-black hover:bg-emerald-400 rounded-xl transition-all cursor-pointer active:scale-95 flex items-center justify-center shrink-0"
+              className="p-3 bg-neon-blue text-black hover:bg-white rounded-sm shadow-[0_0_15px_rgba(0,242,255,0.4)] transition-all cursor-pointer active:scale-95 flex items-center justify-center shrink-0"
             >
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-4 h-4" />
             </button>
           </form>
 
           {/* Bottom security assurance alert */}
-          <div className="bg-black py-1.5 px-3 border-t border-white/5 flex items-center justify-center gap-1 text-[8.5px] font-mono text-[#52525b]">
-            <AlertCircle className="w-2.5 h-2.5 text-emerald-500/60" />
-            <span>Encriptación de soporte seguro Sede Guanare</span>
+          <div className="bg-black py-2 px-3 border-t border-neon-blue/30 flex items-center justify-center gap-2 text-[8px] font-mono text-neon-blue/40 font-bold uppercase tracking-[0.2em] relative z-10">
+            <AlertCircle className="w-3 h-3 text-neon-blue/60" />
+            <span>ENCRIPTACIÓN_NODO_GUANARE_READY</span>
           </div>
 
         </div>
