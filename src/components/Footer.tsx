@@ -32,11 +32,11 @@ export default function Footer() {
           </a>
 
           <p className="text-[11px] text-gray-400 font-medium leading-relaxed max-w-sm border-l-2 border-neon-blue/20 pl-6">
-            Investigación y Desarrollo de Sistemas Digitales en la región de Portuguesa. Servicios de electrónica, desarrollo de software y comunicación visual de impacto.
+            Sistemas Digitales en la Región de Guanare Portuguesa. Servicios de Electrónica, Desarrollo de Software y Comunicación Visual de Impacto.
           </p>
 
           <p className="text-[9px] font-mono text-neon-blue/40 uppercase tracking-[0.2em] font-bold">
-            © {new Date().getFullYear()} BIOSYSTEM TECHNOLOGIES @2026// TODOS LOS DERECHOS RESERVADOS<br />
+            © {new Date().getFullYear()} BIOSYSTEM TECHNOLOGIES // TODOS LOS DERECHOS RESERVADOS<br />
             ID_ESTACIÓN: GUANARE_PORT_VE
           </p>
         </div>
