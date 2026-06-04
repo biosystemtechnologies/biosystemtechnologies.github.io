@@ -271,8 +271,8 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
           {/* Header row */}
           <div className="p-4 bg-black border-b border-neon-blue/30 flex items-center justify-between relative z-10">
             <div className="flex items-center gap-3">
-              <div className="relative flex items-center justify-center w-10 h-10 border border-neon-blue bg-black rounded-sm shadow-[0_0_10px_rgba(0,242,255,0.3)]">
-                <Layers className="w-5 h-5 text-neon-blue" />
+              <div className="relative flex items-center justify-center w-10 h-10 border border-neon-blue bg-black rounded-sm shadow-[0_0_10px_rgba(0,242,255,0.3)] overflow-hidden">
+                <img src="/logo.png" alt="Biosystem Logo" className="w-7 h-7 object-contain" />
                 {/* Active pulse */}
                 <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-neon-blue border border-black rounded-full shadow-[0_0_5px_rgba(0,242,255,1)]" />
               </div>

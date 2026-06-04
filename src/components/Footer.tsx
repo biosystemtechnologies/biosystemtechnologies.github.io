@@ -24,8 +24,8 @@ export default function Footer() {
         {/* Brand Column */}
         <div className="md:col-span-2 space-y-6">
           <a href="#inicio" className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 border border-neon-blue bg-black shadow-[0_0_10px_rgba(0,242,255,0.4)] rounded-sm">
-              <Layers className="w-5 h-5 text-neon-blue" />
+            <div className="flex items-center justify-center w-10 h-10 border border-neon-blue bg-black shadow-[0_0_10px_rgba(0,242,255,0.4)] rounded-sm overflow-hidden">
+              <img src="/logo.png" alt="Biosystem Logo" className="w-7 h-7 object-contain" />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-bold text-lg text-white tracking-tighter uppercase italic">

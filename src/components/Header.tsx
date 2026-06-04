@@ -61,8 +61,8 @@ export default function Header({ onOpenChat, activeSection }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-3 group transition-transform duration-300 active:scale-95">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-sm border border-neon-blue bg-black text-neon-blue font-bold tracking-tighter shadow-[0_0_15px_rgba(0,242,255,0.3)] group-hover:shadow-[0_0_25px_rgba(0,242,255,0.5)] transition-all">
-            <Layers className="w-5 h-5 automan-text" />
+          <div className="relative flex items-center justify-center w-10 h-10 rounded-sm border border-neon-blue bg-black overflow-hidden shadow-[0_0_15px_rgba(0,242,255,0.3)] group-hover:shadow-[0_0_25px_rgba(0,242,255,0.5)] transition-all">
+            <img src="/logo.png" alt="Biosystem Logo" className="w-7 h-7 object-contain" />
           </div>
           <div className="flex flex-col">
             <span className="font-display font-bold text-base tracking-tighter text-white uppercase group-hover:text-neon-blue transition-colors">
