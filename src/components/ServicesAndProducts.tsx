@@ -161,7 +161,11 @@ export default function ServicesAndProducts({ onOpenChatWithTopic }: ServicesPro
                   {PRODUCTS_CATALOG.slice(0, 6).map((product) => (
                     <div
                       key={product.id}
-                      className="group relative rounded-sm overflow-hidden bg-black border border-neon-blue/30 p-4 flex flex-col justify-between hover:border-neon-blue transition-all hover:scale-[1.02] shadow-[0_0_15px_rgba(0,242,255,0.05)]"
+                      className={`group relative rounded-sm overflow-hidden bg-black border p-4 flex flex-col justify-between transition-all hover:scale-[1.02] shadow-[0_0_15px_rgba(0,242,255,0.05)] ${
+                        product.isAvailable 
+                          ? 'border-neon-blue/30 hover:border-neon-blue' 
+                          : 'border-orange-500/20 opacity-70'
+                      }`}
                     >
                       <div>
                         {/* Imagelink fallback display */}
@@ -169,40 +173,63 @@ export default function ServicesAndProducts({ onOpenChatWithTopic }: ServicesPro
                           <img
                             src={product.image}
                             alt={product.name}
-                            className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60 transition-transform duration-500"
+                            className={`w-full h-full object-cover transition-transform duration-500 ${
+                              product.isAvailable 
+                                ? 'grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-60' 
+                                : 'grayscale opacity-10'
+                            }`}
                             referrerPolicy="no-referrer"
                           />
-                          <div className="absolute top-2 right-2 px-2.5 py-1 bg-neon-blue text-black rounded-sm font-mono text-[8px] font-bold tracking-[0.2em] shadow-[0_0_10px_rgba(0,242,255,0.8)]">
-                            STOCK_OK
+                          <div className={`absolute top-2 right-2 px-2.5 py-1 rounded-sm font-mono text-[8px] font-bold tracking-[0.2em] shadow-lg ${
+                            product.isAvailable 
+                              ? 'bg-neon-blue text-black shadow-[0_0_10px_rgba(0,242,255,0.8)]' 
+                              : 'bg-orange-500/20 text-orange-500 border border-orange-500/50 shadow-[0_0_10px_rgba(249,115,22,0.3)]'
+                          }`}>
+                            {product.isAvailable ? 'STOCK_OK' : 'MANTENIMIENTO'}
                           </div>
                         </div>
-                        <span className="font-mono text-[9px] uppercase tracking-widest text-neon-blue/50 font-bold">
+                        <span className={`font-mono text-[9px] uppercase tracking-widest font-bold ${
+                          product.isAvailable ? 'text-neon-blue/50' : 'text-orange-500/40'
+                        }`}>
                           {product.category}
                         </span>
-                        <h4 className="font-bold text-xs text-white min-h-[32px] mt-1 line-clamp-2 uppercase tracking-tighter group-hover:text-neon-blue transition-colors">
+                        <h4 className={`font-bold text-xs min-h-[32px] mt-1 line-clamp-2 uppercase tracking-tighter transition-colors ${
+                          product.isAvailable ? 'text-white group-hover:text-neon-blue' : 'text-gray-500'
+                        }`}>
                           {product.name}
                         </h4>
                         <div className="mt-2 space-y-1">
                           {product.specs.slice(0, 2).map((s, idx) => (
-                            <p key={idx} className="font-mono text-[9px] text-neon-blue/40 truncate italic">
+                            <p key={idx} className={`font-mono text-[9px] truncate italic ${
+                              product.isAvailable ? 'text-neon-blue/40' : 'text-orange-500/20'
+                            }`}>
                               &gt; {s}
                             </p>
                           ))}
                         </div>
                       </div>
-                      <div className="mt-4 pt-3 border-t border-neon-blue/20 flex items-center justify-between">
-                        <span className="font-display font-bold text-sm text-neon-blue drop-shadow-[0_0_5px_rgba(0,242,255,0.4)]">
+                      <div className={`mt-4 pt-3 border-t flex items-center justify-between ${
+                        product.isAvailable ? 'border-neon-blue/20' : 'border-orange-500/10'
+                      }`}>
+                        <span className={`font-display font-bold text-sm drop-shadow-[0_0_5px_rgba(0,242,255,0.4)] ${
+                          product.isAvailable ? 'text-neon-blue' : 'text-orange-500/40'
+                        }`}>
                           ${product.price}
                         </span>
                         <button
-                          onClick={() => onOpenChatWithTopic(`disponibilidad_${product.id}`)}
-                          className="px-2.5 py-1.5 text-[9px] uppercase tracking-widest font-bold bg-neon-blue text-black rounded-sm hover:bg-white active:scale-95 transition-all shadow-[0_0_10px_rgba(0,242,255,0.5)] cursor-pointer"
+                          onClick={() => onOpenChatWithTopic(product.isAvailable ? `disponibilidad_${product.id}` : `info_mantenimiento_${product.id}`)}
+                          className={`px-2.5 py-1.5 text-[9px] uppercase tracking-widest font-bold rounded-sm active:scale-95 transition-all cursor-pointer ${
+                            product.isAvailable 
+                              ? 'bg-neon-blue text-black hover:bg-white shadow-[0_0_10px_rgba(0,242,255,0.5)]' 
+                              : 'bg-orange-950/40 text-orange-500 border border-orange-500/40 hover:bg-orange-500 hover:text-black'
+                          }`}
                         >
-                          CONSULTAR
+                          {product.isAvailable ? 'CONSULTAR' : 'EN_REVISIÓN'}
                         </button>
                       </div>
                     </div>
                   ))}
+
                 </div>
               </div>
             </div>

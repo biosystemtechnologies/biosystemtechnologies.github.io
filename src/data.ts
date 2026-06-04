@@ -170,7 +170,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
     name: 'Workstation Biosystem Pro-X',
     category: 'Computadores',
     price: '799.00',
-    isAvailable: true,
+    isAvailable: false,
     image: 'https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=300&q=80',
     specs: ['Procesador AMD Ryzen 7 5700X', '32GB RAM DDR4 Kingston Fury', '1TB SSD NVMe PCIe 4.0', 'GPU NVIDIA RTX 3060 12GB', 'Ideal para Diseño 3D y Programación Avanzada']
   },
@@ -179,7 +179,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
     name: 'Lenovo ThinkPad T14 (Enterprise)',
     category: 'Computadores',
     price: '460.00',
-    isAvailable: true,
+    isAvailable: false,
     image: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=300&q=80',
     specs: ['Intel Core i5 10ma Generación', '16GB RAM DDR4 expandible', '512GB SSD NVMe de alta velocidad', 'Pantalla 14" Full HD Antireflejo', 'Garantía Biosystem de 6 meses']
   },
@@ -188,7 +188,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
     name: 'Router TP-Link Archer AX23 Wi-Fi 6',
     category: 'Accesorios',
     price: '55.00',
-    isAvailable: true,
+    isAvailable: false,
     image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=300&q=80',
     specs: ['Dual-Band Wi-Fi 6 (hasta 1.8 Gbps)', '4 Antenas externas de alta potencia', 'Puertos Gigabit (WAN/LAN) de alta velocidad', 'Soporta hasta 64 dispositivos simultáneos']
   },
@@ -197,7 +197,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
     name: 'SSD Crucial P3 Plus 1TB M.2 NVMe',
     category: 'Componentes',
     price: '85.00',
-    isAvailable: true,
+    isAvailable: false,
     image: 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?auto=format&fit=crop&w=300&q=80',
     specs: ['Capacidad de 1 Terabyte', 'Velocidad de Lectura hasta 5000 MB/s', 'Perfecto para actualizar Laptops y Consolas', 'Consumo energético optimizado']
   },
@@ -206,7 +206,7 @@ export const PRODUCTS_CATALOG: ProductItem[] = [
     name: 'Corsair Vengeance LPX 16GB (2x8GB)',
     category: 'Componentes',
     price: '48.00',
-    isAvailable: true,
+    isAvailable: false,
     image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=300&q=80',
     specs: ['Kit de Memoria Dual Channel', 'Frecuencia de 3200 Mhz CL16', 'Disipador térmico de aluminio anodizado', 'Optimizado para placas madre Intel y AMD']
   },
