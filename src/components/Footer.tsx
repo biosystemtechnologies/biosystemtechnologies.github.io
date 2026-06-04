@@ -23,17 +23,9 @@ export default function Footer() {
         
         {/* Brand Column */}
         <div className="md:col-span-2 space-y-6">
-          <a href="#inicio" className="flex items-center gap-3">
-            <div className="flex items-center justify-center w-10 h-10 border border-neon-blue bg-black shadow-[0_0_10px_rgba(0,242,255,0.4)] rounded-sm overflow-hidden">
-              <img src="/logo.png" alt="Biosystem Logo" className="w-7 h-7 object-contain" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-lg text-white tracking-tighter uppercase italic">
-                Biosystem <span className="text-neon-blue">Tech</span>
-              </span>
-              <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neon-blue/50 font-bold leading-none">
-                PROTOCOL_NODE_V1
-              </span>
+          <a href="#inicio" className="flex items-center group transition-transform duration-300">
+            <div className="flex items-center justify-center w-28 h-28 border-2 border-neon-blue bg-black shadow-[0_0_20px_rgba(0,242,255,0.4)] rounded-sm overflow-hidden group-hover:shadow-[0_0_35px_rgba(0,242,255,0.6)] transition-all">
+              <img src="/logo.png" alt="Biosystem Logo" className="w-[85%] h-[85%] object-contain" />
             </div>
           </a>
 

@@ -270,18 +270,17 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
           
           {/* Header row */}
           <div className="p-4 bg-black border-b border-neon-blue/30 flex items-center justify-between relative z-10">
-            <div className="flex items-center gap-3">
-              <div className="relative flex items-center justify-center w-10 h-10 border border-neon-blue bg-black rounded-sm shadow-[0_0_10px_rgba(0,242,255,0.3)] overflow-hidden">
-                <img src="/logo.png" alt="Biosystem Logo" className="w-7 h-7 object-contain" />
+            <div className="flex items-center gap-4">
+              <div className="relative flex items-center justify-center w-20 h-20 border-2 border-neon-blue bg-black rounded-sm shadow-[0_0_15px_rgba(0,242,255,0.4)] overflow-hidden">
+                <img src="/logo.png" alt="Biosystem Logo" className="w-[85%] h-[85%] object-contain" />
                 {/* Active pulse */}
-                <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-neon-blue border border-black rounded-full shadow-[0_0_5px_rgba(0,242,255,1)]" />
+                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-neon-blue border border-black rounded-full shadow-[0_0_10px_rgba(0,242,255,1)]" />
               </div>
               <div className="text-left">
-                <h4 className="text-[11px] font-bold text-white flex items-center gap-2 leading-tight uppercase italic tracking-tighter">
-                  BIOBOT_COMMS_V1 
-                  <Sparkles className="w-3.5 h-3.5 text-neon-blue animate-pulse" />
-                </h4>
-                <p className="text-[9px] text-neon-blue font-mono font-bold tracking-[0.2em]">UPLINK_ESTABLISHED</p>
+                <p className="text-[9px] text-neon-blue font-mono font-bold tracking-[0.2em] flex items-center gap-2">
+                  UPLINK_OK <Sparkles className="w-3 h-3 animate-pulse" />
+                </p>
+                <p className="text-[8px] text-neon-blue/40 font-mono tracking-tighter">ID: BIOBOT_V1</p>
               </div>
             </div>
             

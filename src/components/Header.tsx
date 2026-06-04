@@ -60,17 +60,11 @@ export default function Header({ onOpenChat, activeSection }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="flex items-center gap-3 group transition-transform duration-300 active:scale-95">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-sm border border-neon-blue bg-black overflow-hidden shadow-[0_0_15px_rgba(0,242,255,0.3)] group-hover:shadow-[0_0_25px_rgba(0,242,255,0.5)] transition-all">
-            <img src="/logo.png" alt="Biosystem Logo" className="w-7 h-7 object-contain" />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-display font-bold text-base tracking-tighter text-white uppercase group-hover:text-neon-blue transition-colors">
-              Biosystem
-            </span>
-            <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-neon-blue leading-none opacity-80">
-              Technologies
-            </span>
+        <a href="#inicio" className="flex items-center group transition-transform duration-300 active:scale-95">
+          <div className={`relative flex items-center justify-center rounded-sm border-2 border-neon-blue bg-black overflow-hidden shadow-[0_0_20px_rgba(0,242,255,0.4)] group-hover:shadow-[0_0_35px_rgba(0,242,255,0.6)] transition-all duration-300 ${
+            isScrolled ? 'w-16 h-16' : 'w-28 h-28 sm:w-32 sm:h-32'
+          }`}>
+            <img src="/logo.png" alt="Biosystem Logo" className="w-[85%] h-[85%] object-contain" />
           </div>
         </a>
 
