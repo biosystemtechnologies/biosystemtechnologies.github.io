@@ -271,16 +271,20 @@ export default function LiveChat({ isOpen, onClose, onOpen, initialTopic }: Live
           {/* Header row */}
           <div className="p-4 bg-black border-b border-neon-blue/30 flex items-center justify-between relative z-10">
             <div className="flex items-center gap-4">
-              <div className="relative flex items-center justify-center w-20 h-20 border-2 border-neon-blue bg-black rounded-sm shadow-[0_0_15px_rgba(0,242,255,0.4)] overflow-hidden">
-                <img src="/logo.png" alt="Biosystem Logo" className="w-[85%] h-[85%] object-contain" />
+              <div className="relative">
+                <img 
+                  src="/logo.png" 
+                  alt="Biosystem Logo" 
+                  className="w-32 h-32 object-contain drop-shadow-[0_0_15px_rgba(0,242,255,0.4)]" 
+                />
                 {/* Active pulse */}
-                <div className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-neon-blue border border-black rounded-full shadow-[0_0_10px_rgba(0,242,255,1)]" />
+                <div className="absolute bottom-4 right-4 w-3.5 h-3.5 bg-neon-blue border-2 border-black rounded-full shadow-[0_0_10px_rgba(0,242,255,1)]" />
               </div>
               <div className="text-left">
-                <p className="text-[9px] text-neon-blue font-mono font-bold tracking-[0.2em] flex items-center gap-2">
-                  UPLINK_OK <Sparkles className="w-3 h-3 animate-pulse" />
+                <p className="text-[10px] text-neon-blue font-mono font-bold tracking-[0.2em] flex items-center gap-2">
+                  UPLINK_OK <Sparkles className="w-3.5 h-3.5 animate-pulse" />
                 </p>
-                <p className="text-[8px] text-neon-blue/40 font-mono tracking-tighter">ID: BIOBOT_V1</p>
+                <p className="text-[9px] text-neon-blue/40 font-mono tracking-tighter">ID: BIOBOT_V1</p>
               </div>
             </div>
             

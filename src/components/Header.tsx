@@ -60,12 +60,14 @@ export default function Header({ onOpenChat, activeSection }: HeaderProps) {
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="flex items-center group transition-transform duration-300 active:scale-95">
-          <div className={`relative flex items-center justify-center rounded-sm border-2 border-neon-blue bg-black overflow-hidden shadow-[0_0_20px_rgba(0,242,255,0.4)] group-hover:shadow-[0_0_35px_rgba(0,242,255,0.6)] transition-all duration-300 ${
-            isScrolled ? 'w-16 h-16' : 'w-28 h-28 sm:w-32 sm:h-32'
-          }`}>
-            <img src="/logo.png" alt="Biosystem Logo" className="w-[85%] h-[85%] object-contain" />
-          </div>
+        <a href="#inicio" className="flex items-center group transition-transform duration-300 active:scale-95 relative z-10">
+          <img 
+            src="/logo.png" 
+            alt="Biosystem Logo" 
+            className={`object-contain transition-all duration-500 drop-shadow-[0_0_15px_rgba(0,242,255,0.4)] group-hover:drop-shadow-[0_0_30px_rgba(0,242,255,0.7)] ${
+              isScrolled ? 'w-24 h-24' : 'w-48 h-48 sm:w-56 sm:h-56'
+            }`} 
+          />
         </a>
 
         {/* Desktop Navigation */}
